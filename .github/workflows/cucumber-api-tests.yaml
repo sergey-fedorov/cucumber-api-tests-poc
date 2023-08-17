@@ -3,10 +3,10 @@ name: Cucumber Api Tests Manual
 on: workflow_dispatch
 
 jobs:
-  build:
+
+  setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -14,7 +14,20 @@ jobs:
           distribution: 'temurin'
 
   test:
-    needs: build
+    needs: setup
+    runs-on: ubuntu-latest
     steps:
-      - name: Run tests with Maven
+      - uses: actions/checkout@v3
+      - name: Run scenarios with Maven
         run: mvn clean test
+
+  report:
+    if: ${{ always() }}
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload cucumber report
+        uses: actions/upload-artifact@v3
+        with:
+          name: cucumber-report-html
+          path: target/cucumber.html
