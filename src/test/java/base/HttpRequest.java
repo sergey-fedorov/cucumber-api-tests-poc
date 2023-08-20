@@ -27,13 +27,13 @@ public class HttpRequest {
 
     /* Custom HTTP methods */
 
-    protected Response sendPost(String url, Object body) {
+    public Response sendPost(String url, Object body) {
         RequestSpecification requestSpec = getRequestSpecification()
                 .body(body);
         return doPost(url, requestSpec);
     }
 
-    protected Response sendPostWithPathParamAndFormData(String url, Map<String, ?> pathParams, Map<String, String> formData) {
+    public Response sendPostWithPathParamAndFormData(String url, Map<String, ?> pathParams, Map<String, String> formData) {
         RequestSpecification requestSpec = getRequestSpecification()
                 .contentType(ContentType.URLENC)
                 .pathParams(pathParams)
@@ -41,30 +41,30 @@ public class HttpRequest {
         return doPost(url, requestSpec);
     }
 
-    protected Response sendGet(String url) {
+    public Response sendGet(String url) {
         return doGet(url, getRequestSpecification());
     }
 
-    protected Response sendGetWithPathParams(String url, String paramName, Object paramValue) {
+    public Response sendGetWithPathParams(String url, String paramName, Object paramValue) {
         RequestSpecification requestSpec = getRequestSpecification()
                 .pathParam(paramName, paramValue);
         return doGet(url, requestSpec);
     }
 
-    protected Response sendGetWithQueryParams(String url, Map<String, Object> queryParams) {
+    public Response sendGetWithQueryParams(String url, Map<String, Object> queryParams) {
         RequestSpecification requestSpec = getRequestSpecification()
                 .queryParams(queryParams);
         return doGet(url, requestSpec);
     }
 
-    protected Response sendPutWithPathParams(String url, Object body, String paramName, Object paramValue) {
+    public Response sendPutWithPathParams(String url, Object body, String paramName, Object paramValue) {
         RequestSpecification requestSpec = getRequestSpecification()
                 .body(body)
                 .pathParam(paramName, paramValue);
         return doPut(url, requestSpec);
     }
 
-    protected Response sendDelete(String url, String paramName, Object paramValue) {
+    public Response sendDelete(String url, String paramName, Object paramValue) {
         RequestSpecification requestSpec = getRequestSpecification()
                 .pathParam(paramName, paramValue);
         return doDelete(url, requestSpec);

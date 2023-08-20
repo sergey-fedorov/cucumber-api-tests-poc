@@ -17,12 +17,12 @@ import static java.net.HttpURLConnection.HTTP_OK;
 public class PetSteps extends BaseApi {
 
     public PetSteps createNewPet(PetModel petRequestModel){
-        sendPost(Endpoints.Pet.CREATE_PET, petRequestModel);
+        httpRequest.sendPost(Endpoints.Pet.CREATE_PET, petRequestModel);
         return this;
     }
 
     public PetSteps getPetDetails(Long petId){
-        sendGetWithPathParams(Endpoints.Pet.PET, "petId", petId);
+        httpRequest.sendGetWithPathParams(Endpoints.Pet.PET, "petId", petId);
         return this;
     }
 
@@ -34,7 +34,7 @@ public class PetSteps extends BaseApi {
     }
 
     public PetSteps deletePet(Long petId){
-        sendDelete(Endpoints.Pet.DELETE, "petId", petId);
+        httpRequest.sendDelete(Endpoints.Pet.DELETE, "petId", petId);
         return this;
     }
 
@@ -46,14 +46,14 @@ public class PetSteps extends BaseApi {
         formData.put("name", name);
         formData.put("status", String.valueOf(petStatus));
 
-        sendPostWithPathParamAndFormData(Endpoints.Pet.DELETE, pathParams, formData);
+        httpRequest.sendPostWithPathParamAndFormData(Endpoints.Pet.DELETE, pathParams, formData);
         return this;
     }
 
     public PetSteps getPetsByStatus(PetStatus status){
         HashMap<String, Object> queryParams = new HashMap<>();
         queryParams.put("status", status);
-        sendGetWithQueryParams(Endpoints.Pet.FIND_BY_STATUS, queryParams);
+        httpRequest.sendGetWithQueryParams(Endpoints.Pet.FIND_BY_STATUS, queryParams);
         return this;
     }
 

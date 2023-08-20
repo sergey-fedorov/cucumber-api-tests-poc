@@ -2,34 +2,44 @@ package base;
 
 import io.restassured.response.ValidatableResponse;
 import org.junit.Assert;
-import services.petstore.common.GenericResponseModel;
 
-public class BaseApi extends HttpRequest{
+import static org.hamcrest.Matchers.*;
 
-    protected <T> T getResponseAs(Class<T> asClass){
-        return getResponse().as(asClass);
+public class BaseApi {
+
+    protected HttpRequest httpRequest;
+
+    public BaseApi(){
+        httpRequest = new HttpRequest();
     }
 
-    protected String getJsonValueAsString(String jsonField){
-        return getResponse().jsonPath().get(jsonField).toString();
+
+    public <T> T getResponseAs(Class<T> asClass){
+        return httpRequest.getResponse().as(asClass);
     }
 
-    protected ValidatableResponse validateResponse(){
-        return getResponse()
+    public String getJsonValueAsString(String jsonField){
+        return validateResponse()
+                .body("$", hasKey(jsonField))
+                .extract().response().jsonPath()
+                .get(jsonField).toString();
+    }
+
+    public ValidatableResponse validateResponse(){
+        return httpRequest.getResponse()
                 .then()
                 .assertThat();
     }
 
-    protected ValidatableResponse validateStatusCode(int statusCode) {
+    public ValidatableResponse validateStatusCode(int statusCode) {
         return validateResponse()
                 .statusCode(statusCode);
     }
 
-    protected void validateGenericResponseBody(Integer code, String type, String message) {
-        GenericResponseModel genericResponseModel = getResponseAs(GenericResponseModel.class);
-        GenericResponseModel expectedResponse = new GenericResponseModel(code, type, message);
-
-        Assert.assertEquals(genericResponseModel, expectedResponse);
+    public void validateGenericResponseBody(int code, String type, String message) {
+        Assert.assertEquals("Wrong code", code, Integer.parseInt(getJsonValueAsString("code")));
+        Assert.assertEquals("Wrong type", type, getJsonValueAsString("type"));
+        Assert.assertEquals("Wrong message", message, getJsonValueAsString("message"));
     }
 
 

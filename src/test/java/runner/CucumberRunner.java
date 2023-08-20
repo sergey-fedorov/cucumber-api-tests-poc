@@ -1,5 +1,6 @@
 package runner;
 
+import base.Endpoints;
 import base.RequestSpecificationFactory;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -14,7 +15,10 @@ public class CucumberRunner {
 
     @BeforeClass
     public static void init(){
-        RequestSpecificationFactory.setBaseUri("https://petstore.swagger.io/v2");
+        String baseUri = System.getProperty("baseUri") != null ?
+                System.getProperty("baseUri") :
+                Endpoints.BASE_URI;
+        RequestSpecificationFactory.setBaseUri(baseUri);
     }
 
 }

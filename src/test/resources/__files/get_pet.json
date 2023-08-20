@@ -1,0 +1,18 @@
+{
+  "id": 2,
+  "category": {
+    "id": 5,
+    "name": "Southeast"
+  },
+  "name": "Freeport",
+  "photoUrls": [
+    "https://example.com/buddy.jpg"
+  ],
+  "tags": [
+    {
+      "id": 3,
+      "name": "Oriental"
+    }
+  ],
+  "status": "available"
+}

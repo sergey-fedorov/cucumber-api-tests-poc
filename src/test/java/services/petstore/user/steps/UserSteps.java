@@ -11,23 +11,23 @@ public class UserSteps extends BaseApi {
 
     
     public String createNewUser(UserModel userModel){
-        sendPost(Endpoints.User.CREATE_USER, userModel);
+        httpRequest.sendPost(Endpoints.User.CREATE_USER, userModel);
         // TODO: null returned if field not found
         return getJsonValueAsString("message");
     }
 
     public UserSteps getUserDetails(String userName){
-        sendGetWithPathParams(Endpoints.User.USER, "username", userName);
+        httpRequest.sendGetWithPathParams(Endpoints.User.USER, "username", userName);
         return this;
     }
 
     public String updateUserDetails(String userName, UserModel userModel){
-        sendPutWithPathParams(Endpoints.User.USER, userModel, "username", userName);
+        httpRequest.sendPutWithPathParams(Endpoints.User.USER, userModel, "username", userName);
         return getJsonValueAsString("message");
     }
 
     public UserSteps deleteUser(String userName){
-        sendDelete(Endpoints.User.USER, "username", userName);
+        httpRequest.sendDelete(Endpoints.User.USER, "username", userName);
         return this;
     }
 
