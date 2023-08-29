@@ -58,3 +58,5 @@ Scenarios executed in parallel.
    Workflow produces cucumber report as downloadable artifact after test execution.
 
    https://github.com/sergey-fedorov/cucumber-api-tests-poc/actions
+
+   and also hosts on http://18.159.59.162/cucumber/cucumber.html
