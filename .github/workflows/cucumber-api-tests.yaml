@@ -26,3 +26,14 @@ jobs:
         with:
           name: cucumber-report-html
           path: target/cucumber.html
+      - name: Copy report to server
+        if: always()
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: 18.159.59.162
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          source: target/cucumber.html
+          strip_components: 1
+          target: /var/www/html/cucumber
