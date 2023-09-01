@@ -38,15 +38,15 @@ pipeline {
                         failOnError: true,
                         publishers: [
                             sshPublisherDesc (
-                            configName: "aws-ec2",
-                            transfers: [
-                                sshTransfer (
-                                    sourceFiles: 'target/cucumber.html',
-                                    removePrefix: 'target',
-                                    remoteDirectory: '/cucumber-jenkins'
-                                    )
-                                ],
-                            verbose: true
+                                configName: "aws-ec2",
+                                transfers: [
+                                    sshTransfer (
+                                        sourceFiles: 'target/cucumber.html',
+                                        removePrefix: 'target',
+                                        remoteDirectory: '/cucumber-jenkins'
+                                        )
+                                    ],
+                                verbose: true
                             )
                         ]
                     )
