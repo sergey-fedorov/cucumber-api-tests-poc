@@ -1,20 +1,35 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven by Jenkins'
+        jdk 'jdk-15.0.2'
+    }
 
     stages {
-        stage('Build') {
+        stage ('Initialize') {
             steps {
-                echo 'Building.. upd'
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
             }
         }
-        stage('Test') {
+        stage ('Test') {
             steps {
-                echo 'Testing..'
+                sh 'mvn clean test' 
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+            post {
+                always {
+                    archiveArtifacts artifacts: 'target/cucumber.html'
+                    publishHTML target : [
+                         allowMissing: false,
+                         alwaysLinkToLastBuild: true,
+                         keepAll: true,
+                         reportDir: 'target',
+                         reportFiles: 'cucumber.html',
+                         reportName: 'cucumber-report',
+                         reportTitles: 'cucumber-report']
+                }
             }
         }
     }
