@@ -20,7 +20,9 @@ pipeline {
             }
             post {
                 always {
+                    
                     archiveArtifacts artifacts: 'target/cucumber.html'
+                    
                     publishHTML target : [
                          allowMissing: false,
                          alwaysLinkToLastBuild: true,
@@ -30,14 +32,15 @@ pipeline {
                          reportName: 'cucumber-report',
                          reportTitles: 'cucumber-report'
                          ]
-                    sshPublisher(
+                         
+                    sshPublisher (
                         continueOnError: false, 
                         failOnError: true,
                         publishers: [
-                            sshPublisherDesc(
+                            sshPublisherDesc (
                             configName: "aws-ec2",
                             transfers: [
-                                sshTransfer(
+                                sshTransfer (
                                     sourceFiles: 'target/cucumber.html',
                                     removePrefix: 'target',
                                     remoteDirectory: '/cucumber-jenkins'
