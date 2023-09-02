@@ -1,0 +1,25 @@
+name: Users Contract API Tests Manual
+
+on: workflow_dispatch
+
+jobs:
+
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run consumer pact tests
+        run: mvn clean test -Dtest=UserConsumerPactTest
+      - name: Run consumer contract tests
+        if: success()
+        run: mvn clean test -Dtest=UserContractTest
