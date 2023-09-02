@@ -21,5 +21,5 @@ jobs:
       - name: Run consumer pact tests
         run: mvn clean test -Dtest=UserConsumerPactTest
       - name: Run consumer contract tests
-        if: success() && hashFiles('src/test/resources/pacts/*.json')
+        if: success() && hashFiles('src/test/resources/pacts/*.test')
         run: mvn clean test -Dtest=UserContractTest
