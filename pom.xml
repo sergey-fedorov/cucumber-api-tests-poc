@@ -62,6 +62,17 @@
             <version>2.35.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>au.com.dius.pact.consumer</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.2.9</version>
+        </dependency>
+        <dependency>
+            <groupId>au.com.dius.pact.provider</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.2.9</version>
+        </dependency>
+
     </dependencies>
     <build>
         <pluginManagement>
@@ -74,6 +85,10 @@
                         <includes>**/CucumberRunner.java</includes>
                         <parallel>methods</parallel>
                         <useUnlimitedThreads>true</useUnlimitedThreads>
+                        <systemPropertyVariables>
+                        <pact.rootDir>src/test/resources/pacts</pact.rootDir>
+                        <buildDirectory>${project.build.directory}</buildDirectory>
+                        </systemPropertyVariables>
                     </configuration>
                 </plugin>
                 <plugin>
