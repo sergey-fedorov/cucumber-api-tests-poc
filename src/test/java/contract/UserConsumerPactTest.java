@@ -45,7 +45,7 @@ public class UserConsumerPactTest extends ConsumerPactTest {
                     .body(new PactDslJsonBody()
                             .numberValue("code", 1)
                             .stringValue("type", "error")
-                            .stringType("message", "User not found")
+                            .stringValue("message", "User not found")
                     )
                 .toPact();
     }
