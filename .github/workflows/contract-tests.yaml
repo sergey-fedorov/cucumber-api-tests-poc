@@ -1,4 +1,4 @@
-name: Pact Contract API Tests Manual
+name: Contract API Tests Manual
 
 on: workflow_dispatch
 
@@ -13,7 +13,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-  test:
+  pact_test:
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -23,3 +23,11 @@ jobs:
       - name: Run consumer contract tests
         if: success()
         run: mvn clean test -Dtest=UserContractTest
+
+  prism_test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run prism contract tests
+        run: mvn clean test -Dtest=PrismContractTest
