@@ -13,8 +13,9 @@ import java.util.Map;
 
 public class PrismContractTest {
 
+    // Prism mock server should be up and running https://docs.stoplight.io/docs/prism
     RequestSpecification requestSpecification = RestAssured.given()
-            .baseUri("http://18.159.59.162")
+            .baseUri("http://3.76.206.135")
             .port(4010)
             .filter(new RequestLoggingFilter())
             .filter(new ResponseLoggingFilter());

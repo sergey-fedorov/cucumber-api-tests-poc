@@ -10,7 +10,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 
-public class MockTest {
+public class WireMockExampleApiTest {
 
     static final String BASE_URI = "http://localhost/";
     static final int PORT = 8089;

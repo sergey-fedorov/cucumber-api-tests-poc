@@ -17,7 +17,7 @@ Feature: Pet scenarios
     Then Pet has correct details
 
 
-  Scenario: Ped updated with correct details
+  Scenario: Pet updated with correct details
     Given Pet created with details:
       | id           | 111       |
       | name         | John      |
