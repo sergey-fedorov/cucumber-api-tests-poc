@@ -13,9 +13,13 @@ import java.util.Map;
 
 public class PrismContractTest {
 
-    // Prism mock server should be up and running https://docs.stoplight.io/docs/prism
+    // Prism mock server should be up and running.
+    // prism mock https://petstore.swagger.io/v2/swagger.json -h 0.0.0.0
+    // https://docs.stoplight.io/docs/prism
+
     RequestSpecification requestSpecification = RestAssured.given()
             .baseUri("http://3.76.206.135")
+//            .baseUri("http://0.0.0.0")
             .port(4010)
             .filter(new RequestLoggingFilter())
             .filter(new ResponseLoggingFilter());
