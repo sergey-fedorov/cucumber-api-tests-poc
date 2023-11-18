@@ -59,6 +59,6 @@ Scenarios executed in parallel.
 
    https://github.com/sergey-fedorov/cucumber-api-tests-poc/actions
 
-   and also hosts on http://3.76.206.135/cucumber/cucumber.html
+   and also hosts on http://35.159.16.199/cucumber/cucumber.html
    
-3. Via Jenkins pipeline, it hosts report file on http://3.76.206.135/cucumber-jenkins/cucumber.html
+3. Via Jenkins pipeline, it hosts report file on http://35.159.16.199/cucumber-jenkins/cucumber.html

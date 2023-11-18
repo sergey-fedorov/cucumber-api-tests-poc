@@ -18,7 +18,7 @@ public class PrismContractTest {
     // https://docs.stoplight.io/docs/prism
 
     RequestSpecification requestSpecification = RestAssured.given()
-            .baseUri("http://3.76.206.135")
+            .baseUri("http://35.159.16.199")
 //            .baseUri("http://0.0.0.0")
             .port(4010)
             .filter(new RequestLoggingFilter())

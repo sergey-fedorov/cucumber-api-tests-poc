@@ -30,7 +30,7 @@ jobs:
         if: always()
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: 3.76.206.135
+          host: 35.159.16.199
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
