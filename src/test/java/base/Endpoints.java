@@ -1,9 +1,11 @@
 package base;
 
+import static utils.PropertiesReader.getProperty;
+
 public class Endpoints {
-    public static final String BASE_HOST = "petstore.swagger.io";
-    public static final String BASE_URI = "https://" + BASE_HOST;
-    private static final String API_VERSION = "/v2";
+    public static final String BASE_HOST = getProperty("baseHost");
+    public static final String BASE_URI = getProperty("protocol") + BASE_HOST;
+    private static final String API_VERSION = getProperty("apiVersion");
 
     public static class User {
         private static final String USER_BASE_URI = API_VERSION + "/user";
