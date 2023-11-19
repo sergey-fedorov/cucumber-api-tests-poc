@@ -1,7 +1,7 @@
 package stepdefinitions;
 
-import services.petstore.pet.model.PetModel;
-import services.petstore.user.models.UserModel;
+import services.pet.model.PetModel;
+import services.user.models.UserModel;
 
 public class StepData {
 

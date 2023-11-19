@@ -2,11 +2,11 @@ package tests;
 
 import org.junit.After;
 import org.junit.Test;
-import services.petstore.pet.model.Category;
-import services.petstore.pet.model.PetModel;
-import services.petstore.pet.model.PetStatus;
-import services.petstore.pet.model.Tag;
-import services.petstore.pet.steps.PetSteps;
+import services.pet.model.Category;
+import services.pet.model.PetModel;
+import services.pet.model.PetStatus;
+import services.pet.model.Tag;
+import services.pet.steps.PetSteps;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,11 @@
 package tests;
 
-import base.Endpoints;
-import base.RequestSpecificationFactory;
+import services.Endpoints;
+import core.RequestSpecificationFactory;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.*;
-import services.petstore.pet.model.PetStatus;
-import services.petstore.pet.steps.PetSteps;
+import services.pet.model.PetStatus;
+import services.pet.steps.PetSteps;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
@@ -38,6 +38,7 @@ public class WireMockExampleApiTest {
 
         RequestSpecificationFactory.unMock();
         petSteps.getPetsByStatus(PetStatus.valueOf(petStatus))
+                // test fails because dummy pet from mock doesn't exist on real db
                 .validatePetPresentsInList(petName);
     }
 

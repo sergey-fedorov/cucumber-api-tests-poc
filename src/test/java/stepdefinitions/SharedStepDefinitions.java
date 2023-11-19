@@ -1,6 +1,6 @@
 package stepdefinitions;
 
-import base.BaseApi;
+import core.BaseApi;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 

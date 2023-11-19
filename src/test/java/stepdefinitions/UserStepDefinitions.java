@@ -5,9 +5,9 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import services.petstore.user.models.UserModel;
-import services.petstore.user.steps.UserSteps;
-import utils.Utils;
+import services.user.models.UserModel;
+import services.user.steps.UserSteps;
+import core.utils.Utils;
 
 import java.util.Map;
 

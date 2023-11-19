@@ -4,7 +4,7 @@ Initial version of POC for the API test automation framework in BDD manner using
 
 Some POJO classes use `Lombok` for better code readability, but some of them do not and implement getters, setters, constructors and builders in a classic way.
 
-`PicoContainer` was used for dependency injection.
+`PicoContainer` was used for dependency injection to share state between steps.
 
 ### AUT
 Is a randomly found Pet Store application: https://petstore.swagger.io/
@@ -23,31 +23,31 @@ Step definitions:
 
 AUT segregated to "step objects" to encapsulate common behavior:
 ```
-/src/test/java/services/petstore
+/src/test/java/services
 ```
-Each step definition class extends the corresponding "step objects" class.
+Each step definition class extends the corresponding "step object" class.
 
 
 
 Base Rest Assured `RequestSpecification` initialization happens in:
 ```
-src/test/java/base/RequestSpecificationFactory.java
+src/test/java/core/RequestSpecificationFactory.java
 ```
 
 Custom wrapped HTTP methods:
 ```
-src/test/java/base/HttpRequest.java
+src/test/java/core/HttpRequest.java
 ```
 
 Common used methods:
 ```
-src/test/java/base/BaseApi.java
+src/test/java/core/BaseApi.java
 ```
 
 
 ### Tests execution
 
-Scenarios executed in parallel.
+Scenarios executed in parallel by methods as configured in pom.xml.
 
 1. Locally via Maven
    ```

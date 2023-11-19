@@ -1,17 +1,16 @@
 package stepdefinitions;
 
-import base.BaseApi;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import services.petstore.pet.model.Category;
-import services.petstore.pet.model.PetModel;
-import services.petstore.pet.model.PetStatus;
-import services.petstore.pet.model.Tag;
-import services.petstore.pet.steps.PetSteps;
+import services.pet.model.Category;
+import services.pet.model.PetModel;
+import services.pet.model.PetStatus;
+import services.pet.model.Tag;
+import services.pet.steps.PetSteps;
 
 import java.util.ArrayList;
 import java.util.List;
