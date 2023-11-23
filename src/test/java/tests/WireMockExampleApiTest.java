@@ -4,7 +4,7 @@ import services.Endpoints;
 import core.RequestSpecificationFactory;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.*;
-import services.pet.model.PetStatus;
+import services.pet.enums.PetStatus;
 import services.pet.steps.PetSteps;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;

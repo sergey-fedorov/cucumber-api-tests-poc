@@ -1,14 +1,20 @@
 package services.pet.model;
 
-import lombok.Builder;
-import lombok.Data;
+import com.github.javafaker.Faker;
+import core.Model;
+import lombok.*;
+import services.pet.enums.PetStatus;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Data
 @Builder
-public class PetModel {
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class PetModel extends Model {
 
     private long id;
     private Category category;
@@ -28,6 +34,17 @@ public class PetModel {
     @Override
     public int hashCode() {
         return Objects.hash(category, name, photoUrls, tags, status);
+    }
+
+    public PetModel defaultBuilder(Faker faker){
+        return PetModel.builder()
+                .id(faker.number().randomNumber())
+                .name(faker.dog().name())
+                .status(PetStatus.available)
+                .category(new Category(101, "dog"))
+                .tags(new ArrayList<>(List.of(new Tag(102, faker.dog().breed()))))
+                .photoUrls(new ArrayList<>(List.of(faker.internet().image())))
+                .build();
     }
 }
 

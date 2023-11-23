@@ -5,7 +5,7 @@ import services.pet.model.PetModel;
 import services.Endpoints;
 import org.junit.Assert;
 import core.exceptions.EntityNotFoundException;
-import services.pet.model.PetStatus;
+import services.pet.enums.PetStatus;
 
 import java.util.Arrays;
 import java.util.HashMap;

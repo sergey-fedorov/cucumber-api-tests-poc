@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "category": {
+      "id": 1,
+      "name": "CatOne"
+    },
+    "name": "anyNameOne",
+    "photoUrls": [
+      "https://example.com/buddyOne.jpg"
+    ],
+    "tags": [
+      {
+        "id": 1,
+        "name": "TagOne"
+      }
+    ],
+    "status": "available"
+  },
+  {
+    "id": 2,
+    "category": {
+      "id": 2,
+      "name": "CatTwo"
+    },
+    "name": "anyNameTwo",
+    "photoUrls": [
+      "https://example.com/buddyTwo.jpg"
+    ],
+    "tags": [
+      {
+        "id": 2,
+        "name": "TagTwo"
+      }
+    ],
+    "status": "sold"
+  },
+  {
+    "id": 3,
+    "category": {
+      "id": 1,
+      "name": "CatOne"
+    },
+    "name": "anyNameThree",
+    "photoUrls": [
+      "https://example.com/buddyThree.jpg"
+    ],
+    "tags": [
+      {
+        "id": 2,
+        "name": "TagTwo"
+      }
+    ],
+    "status": "sold"
+  },
+  {
+    "id": 4,
+    "category": {
+      "id": 2,
+      "name": "CatTwo"
+    },
+    "name": "anyNameFour",
+    "photoUrls": [
+      "https://example.com/buddyFour1.jpg",
+      "https://example.com/buddyFour2.jpg"
+    ],
+    "tags": [
+      {
+        "id": 2,
+        "name": "TagTwo"
+      }
+    ],
+    "status": "sold"
+  },
+  {
+    "id": 5,
+    "category": {
+      "id": 2,
+      "name": "CatTwo"
+    },
+    "name": "anyNameFive",
+    "photoUrls": [
+      "https://example.com/buddyFive.jpg"
+    ],
+    "tags": [
+      {
+        "id": 1,
+        "name": "TagOne"
+      }
+    ],
+    "status": "available"
+  }
+]

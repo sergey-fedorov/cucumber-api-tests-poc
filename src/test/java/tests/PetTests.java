@@ -1,32 +1,22 @@
 package tests;
 
+import core.BaseTest;
+import core.StepsFactory;
+import core.TestDataFactory;
 import org.junit.After;
 import org.junit.Test;
-import services.pet.model.Category;
 import services.pet.model.PetModel;
-import services.pet.model.PetStatus;
-import services.pet.model.Tag;
+import services.pet.enums.PetStatus;
 import services.pet.steps.PetSteps;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 import static java.net.HttpURLConnection.HTTP_OK;
 
-public class PetTests {
+public class PetTests extends BaseTest {
 
-    PetSteps petSteps = new PetSteps();
-
-    Long petId = 111L;
-    PetModel pet = PetModel.builder()
-            .id(petId)
-            .name("John")
-            .status(PetStatus.available)
-            .category(new Category(101, "dog"))
-            .tags(new ArrayList<>(List.of(new Tag(102, "beagle"))))
-            .photoUrls(new ArrayList<>(List.of("https://upload.wikimedia.org/wikipedia/commons/5/55/Beagle_600.jpg")))
-            .build();
+    PetSteps petSteps = StepsFactory.get(PetSteps.class);
+    PetModel pet = TestDataFactory.getModel(PetModel.class);
+    Long petId = pet.getId();
 
     @After
     public void petCleanUp(){
@@ -43,14 +33,16 @@ public class PetTests {
 
     @Test
     public void verifyPetUpdatedWithCorrectDetails(){
+        String newPetName = faker.dog().name();
+
         petSteps.createNewPet(pet)
                 .validateStatusCode(HTTP_OK);
 
-        petSteps.updatePet(petId, "JohnNew", PetStatus.sold);
+        petSteps.updatePet(petId, newPetName, PetStatus.sold);
         petSteps.validateStatusCode(HTTP_OK);
         petSteps.validateGenericResponseBody(HTTP_OK, "unknown", String.valueOf(pet.getId()));
 
-        pet.setName("JohnNew");
+        pet.setName(newPetName);
         pet.setStatus(PetStatus.sold);
         petSteps.getPetDetails(petId)
                 .validatePetDetails(pet);

@@ -1,4 +1,4 @@
-package services.pet.model;
+package services.pet.enums;
 
 public enum PetStatus {
 

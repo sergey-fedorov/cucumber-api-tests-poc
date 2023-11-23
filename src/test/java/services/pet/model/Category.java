@@ -1,9 +1,11 @@
 package services.pet.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.Objects;
 
+@Data
 @AllArgsConstructor
 public class Category {
     private long id;

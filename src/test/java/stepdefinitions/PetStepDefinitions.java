@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import services.pet.model.Category;
 import services.pet.model.PetModel;
-import services.pet.model.PetStatus;
+import services.pet.enums.PetStatus;
 import services.pet.model.Tag;
 import services.pet.steps.PetSteps;
 
