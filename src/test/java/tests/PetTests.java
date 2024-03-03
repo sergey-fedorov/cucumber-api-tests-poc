@@ -16,7 +16,7 @@ public class PetTests extends BaseTest {
 
     PetSteps petSteps = StepsFactory.get(PetSteps.class);
     PetModel pet = TestDataFactory.getModel(PetModel.class);
-    Long petId = pet.getId();
+    long petId = pet.getId();
 
     @After
     public void petCleanUp(){
